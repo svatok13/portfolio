@@ -82,6 +82,17 @@ class Project implements Translatable
     private $shortDescription;
 
     /**
+     * @var string $additionalInfo
+     *
+     * @Assert\Length(
+     *      min = "3"
+     * )
+     * @Gedmo\Translatable(fallback=true)
+     * @ORM\Column(name="additional_info", type="text")
+     */
+    private $additionalInfo;
+
+    /**
      * @var string $url
      *
      * @Assert\Url
@@ -279,12 +290,12 @@ class Project implements Translatable
      */
     public function __construct()
     {
-        $this->categories                   = new ArrayCollection();
-        $this->participants                 = new ArrayCollection();
-        $this->media                        = new ArrayCollection();
-        $this->published                    = true;
-        $this->translations                 = new ArrayCollection();
-        $this->relativeProjects             = new ArrayCollection();
+        $this->categories         = new ArrayCollection();
+        $this->participants       = new ArrayCollection();
+        $this->media              = new ArrayCollection();
+        $this->published          = true;
+        $this->translations       = new ArrayCollection();
+        $this->relativeProjects   = new ArrayCollection();
         $this->usersWithPositions = new ArrayCollection();
     }
 
@@ -954,5 +965,21 @@ class Project implements Translatable
         $this->usersWithPositions->add($userWithPosition);
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdditionalInfo()
+    {
+        return $this->additionalInfo;
+    }
+
+    /**
+     * @param string $additionalInfo
+     */
+    public function setAdditionalInfo($additionalInfo)
+    {
+        $this->additionalInfo = $additionalInfo;
     }
 }
