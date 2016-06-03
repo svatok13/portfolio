@@ -241,6 +241,11 @@ class ProjectAdmin extends Admin
      */
     public function prePersist($project)
     {
+        $additionalInfo = <<<INFO
+<h1>{$project->getName()}</h1></br>
+<a href="{$project->getUrl()}" rel="nofollow" target="_blank" class="project-link">{$project->getUrl()}</a>
+INFO;
+        $project->setAdditionalInfo($additionalInfo);
         $this->preUpdate($project);
     }
 
