@@ -4,7 +4,6 @@ namespace Stfalcon\Bundle\PortfolioBundle\Command;
 
 use Application\Bundle\UserBundle\Entity\User;
 use Application\Bundle\UserBundle\Entity\UserTranslation;
-use Doctrine\ORM\PersistentCollection;
 use Stfalcon\Bundle\PortfolioBundle\Entity\Project;
 use Stfalcon\Bundle\PortfolioBundle\Entity\UserWithPosition;
 use Stfalcon\Bundle\PortfolioBundle\Entity\UserWithPositionTranslation;
